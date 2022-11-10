@@ -66,7 +66,6 @@ export default class AddTutorial extends Component {
   }
 
   render() {
-    console.log('render,addTut');
     return (
       <div className="submit-form">
         {this.state.submitted ? (
