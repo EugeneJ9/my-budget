@@ -9,7 +9,8 @@
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "generate-docs": "apidoc"
   },
   "keywords": [
     "nodejs",
@@ -27,9 +28,27 @@
     "mongoose": "^6.7.1"
   },
   "devDependencies": {
+    "apidoc": "^0.53.1",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1"
+  },
+  "apidoc": {
+    "name": "MyBudget Api documentation",
+    "version": "0.0.1",
+    "description": "Documentation for the REST api access provided at We learn inc.",
+    "title": "Custom apiDoc browser title",
+    "url": "http://localhost:8080/api",
+    "sampleUrl": "http://localhost:8080/api",
+    "order": [
+      "Income"
+    ],
+    "template": {
+      "showRequiredLabels": false,
+      "withCompare": true,
+      "withGenerator": true,
+      "aloneDisplay": false
+    }
   }
 }
