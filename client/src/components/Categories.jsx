@@ -11,7 +11,7 @@ export default class Categories extends Component {
 
     this.state = {
       id: null,
-      title: '',
+      name: '',
       description: '',
       published: false,
 
@@ -41,7 +41,7 @@ export default class Categories extends Component {
       .then((response) => {
         this.setState({
           id: response.data.id,
-          title: response.data.title,
+          name: response.data.name,
           description: response.data.description,
           published: response.data.published,
 
@@ -57,7 +57,7 @@ export default class Categories extends Component {
   newCategory() {
     this.setState({
       id: null,
-      title: '',
+      name: '',
       description: '',
       published: false,
       
