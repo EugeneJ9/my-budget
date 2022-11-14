@@ -6,8 +6,8 @@ export default class Categories extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.saveCategorie = this.saveCategorie.bind(this);
-    this.newCategorie = this.newCategorie.bind(this);
+    this.saveCategory = this.saveCategory.bind(this);
+    this.newCategory = this.newCategory.bind(this);
 
     this.state = {
       id: null,
@@ -31,14 +31,13 @@ export default class Categories extends Component {
     });
   }
 
-    saveCategorie() {
+  saveCategory() {
     const data = {
       name: this.state.name,
       description: this.state.description,
     };
 
     CategoriesDataService.create(data)
-      console.log("🚀 ~ file: Categories.jsx ~ line 41 ~ Categories ~ saveCategorie ~ data", data)
       .then((response) => {
         this.setState({
           id: response.data.id,
@@ -55,7 +54,7 @@ export default class Categories extends Component {
       });
   }
 
-  newCategorie() {
+  newCategory() {
     this.setState({
       id: null,
       title: '',
@@ -72,7 +71,7 @@ export default class Categories extends Component {
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className='btn btn-success' onClick={this.newCategorie}>
+            <button className='btn btn-success' onClick={this.newCategory}>
               Add
             </button>
           </div>
@@ -104,7 +103,7 @@ export default class Categories extends Component {
               />
             </div>
 
-            <button onClick={this.saveCategorie} className='btn btn-success'>
+            <button onClick={this.saveCategory} className='btn btn-success'>
               Submit
             </button>
           </div>
