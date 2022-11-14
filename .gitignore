@@ -1,5 +1,6 @@
 server/node_modules
 client/node_modules
-server/app/config/db.config.js
+server/src/config/db.config.js
 server/package-lock.json
 client/package-lock.json
+server/doc

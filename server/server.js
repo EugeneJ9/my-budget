@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const db = require('./app/models');
-const tutorialRoutes = require('./app/routes/tutorial.routes');
-const incomeCategoryRoutes = require('./app/routes/income-category.routes');
+const db = require('./src/models');
+const tutorialRoutes = require('./src/routes/tutorial.routes');
+const incomeCategoryRoutes = require('./src/routes/income-category.routes');
+const incomeRoutes = require('./src/routes/income.routes');
 
 const app = express();
 
@@ -34,13 +35,17 @@ db.mongoose
     process.exit();
   });
 
+// serve doc folder as static
+app.use(express.static(`${__dirname}/doc`));
+
 // simple route
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to My Budget application.' });
+  res.sendFile('doc/index.html', { root: __dirname });
 });
 
 tutorialRoutes(app);
 incomeCategoryRoutes(app);
+incomeRoutes(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
