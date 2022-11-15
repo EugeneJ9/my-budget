@@ -10,7 +10,6 @@ export default class Categories extends Component {
     this.newCategory = this.newCategory.bind(this);
 
     this.state = {
-      id: null,
       name: '',
       description: '',
 
@@ -39,13 +38,11 @@ export default class Categories extends Component {
     IncomeCategoriesDataService.create(data)
       .then((response) => {
         this.setState({
-          id: response.data.id,
           name: response.data.name,
           description: response.data.description,
 
           submitted: true,
         });
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
