@@ -75,6 +75,7 @@ exports.create = (req, res) => {
  * @apiDescription Retrieve all existing Incomes
  *
  * @apiSuccess {Object[]} income             List of Incomes (Array of Objects)
+ * @apiSuccess {String}   income.id          Income id
  * @apiSuccess {String}   income.name        Income Name
  * @apiSuccess {String}   income.description Income Description
  * @apiSuccess {String}   income.userId      Income User id

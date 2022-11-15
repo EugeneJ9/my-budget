@@ -10,7 +10,7 @@
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "generate-docs": "apidoc"
+    "generate-docs": "./node_modules/apidoc/bin/apidoc"
   },
   "keywords": [
     "nodejs",
@@ -42,6 +42,7 @@
     "url": "http://localhost:8080/api",
     "sampleUrl": "http://localhost:8080/api",
     "order": [
+      "IncomeCategory",
       "Income"
     ],
     "template": {
