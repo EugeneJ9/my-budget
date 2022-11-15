@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import CategoriesDataService from 
+import IncomeCategoriesDataService from '../services/income-categories.service';
 
 export default class Categories extends Component {
   constructor(props) {
@@ -13,7 +13,6 @@ export default class Categories extends Component {
       id: null,
       name: '',
       description: '',
-      published: false,
 
       submitted: false,
     };
@@ -37,13 +36,12 @@ export default class Categories extends Component {
       description: this.state.description,
     };
 
-    CategoriesDataService.create(data)
+    IncomeCategoriesDataService.create(data)
       .then((response) => {
         this.setState({
           id: response.data.id,
           name: response.data.name,
           description: response.data.description,
-          published: response.data.published,
 
           submitted: true,
         });
@@ -59,7 +57,6 @@ export default class Categories extends Component {
       id: null,
       name: '',
       description: '',
-      published: false,
       
       submitted: false,
     });
