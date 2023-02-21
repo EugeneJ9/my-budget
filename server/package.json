@@ -10,7 +10,7 @@
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "generate-docs": "./node_modules/apidoc/bin/apidoc"
+    "generate-docs": "node ./node_modules/apidoc/bin/apidoc"
   },
   "keywords": [
     "nodejs",

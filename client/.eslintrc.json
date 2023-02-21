@@ -13,6 +13,7 @@
   "rules": {
     // temporary turn off console.log warnings, to have some vision in console
     // "no-console": "warn",
-    "semi": "warn"
+    "semi": "warn",
+    "no-unused-vars": "warn"
   }
 }

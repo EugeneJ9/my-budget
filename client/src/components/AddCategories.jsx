@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import IncomeCategoriesDataService from '../services/income-categories.service';
 
-export default class Categories extends Component {
+export default class AddCategories extends Component {
   constructor(props) {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
     this.saveCategory = this.saveCategory.bind(this);
     this.newCategory = this.newCategory.bind(this);
 
     this.state = {
       name: '',
-      description: '',
-
+      published: false,
+      
       submitted: false,
     };
   }
@@ -23,23 +22,16 @@ export default class Categories extends Component {
     });
   }
 
-  onChangeDescription(e) {
-    this.setState({
-      description: e.target.value,
-    });
-  }
 
   saveCategory() {
     const data = {
       name: this.state.name,
-      description: this.state.description,
     };
 
     IncomeCategoriesDataService.create(data)
       .then((response) => {
         this.setState({
           name: response.data.name,
-          description: response.data.description,
 
           submitted: true,
         });
@@ -53,7 +45,6 @@ export default class Categories extends Component {
     this.setState({
       id: null,
       name: '',
-      description: '',
       
       submitted: false,
     });
@@ -61,6 +52,7 @@ export default class Categories extends Component {
 
   render() {
     return (
+      <div className='col-md-6'>
       <div className='submit-form'>
         {this.state.submitted ? (
           <div>
@@ -72,7 +64,7 @@ export default class Categories extends Component {
         ) : (
           <div>
             <div className='form-group'>
-              <label htmlFor='name'>New name</label>
+              <label htmlFor='name'>New category name</label>
               <input
                 type='text'
                 className='form-control'
@@ -84,25 +76,13 @@ export default class Categories extends Component {
               />
             </div>
 
-            <div className='form-group'>
-              <label htmlFor="description">Description</label>
-              <input
-                type='text'
-                className='form-control'
-                id='description'
-                required
-                value={this.state.description}
-                onChange={this.onChangeDescription}
-                name='description'
-              />
-            </div>
-
             <button onClick={this.saveCategory} className='btn btn-success'>
               Submit
             </button>
           </div>
         )}
       </div>
+      </div>
     );
-  }
-}
+  };
+};
