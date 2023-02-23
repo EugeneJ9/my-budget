@@ -16,7 +16,6 @@ export default function AddExpense() {
   const [currency, setCurrency] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
   const [published, setPublished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -40,10 +39,6 @@ export default function AddExpense() {
     setCategoryId(event.target.value);
   };
 
-  const onChangeDescription = (event) => {
-    setDescription(event.target.value);
-  };
-
   const saveExpense = () => {
     setSubmitted(true);
     const data = {
@@ -52,7 +47,6 @@ export default function AddExpense() {
       currency,
       categoryId,
       name,
-      description,
     };
   };
 
@@ -62,7 +56,6 @@ export default function AddExpense() {
     setCurrency('');
     setCategoryId('');
     setName('');
-    setDescription('');
     setPublished(false);
   };
 
@@ -123,18 +116,6 @@ export default function AddExpense() {
               value={name}
               onChange={onChangeName}
               name="name"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor='income_description'>Description</label>
-            <input
-              type='text'
-              className="form-control"
-              id='description'
-              value={description}
-              onChange={onChangeDescription}
-              name="description"
             />
           </div>
 

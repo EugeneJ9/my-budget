@@ -48,9 +48,7 @@ export default class AddIncome extends Component {
       currency: '',
       categoryId: '',
       name: '',
-      description: '',
       published: false,
-
 
       submitted: false,
     };
@@ -85,12 +83,6 @@ export default class AddIncome extends Component {
       name: e.target.value,
     });
   };
-
-  onChangeIncomeDescription(e) {
-    this.setState({
-      description: e.target.value,
-    });
-  };
   
   saveIncome() {
     const data = {
@@ -99,7 +91,6 @@ export default class AddIncome extends Component {
       currency: this.state.currency,
       categoryId: this.state.categoryId,
       name: this.state.name,
-      description: this.state.description,
     };
 
     AddIncomeDataService.create(data)
@@ -110,7 +101,6 @@ export default class AddIncome extends Component {
         currency: response.data.currency,
         categoryId: response.data.categoryId,
         name: response.data.name,
-        description: response.data.description,
         published: response.data.published,
 
         submitted: true,
@@ -128,7 +118,6 @@ export default class AddIncome extends Component {
       currency: '',
       categoryId: '',
       name: '',
-      description: '',
       published: false,
 
       submitted: false,
@@ -184,15 +173,6 @@ export default class AddIncome extends Component {
               </div>
 
               <div className="form-group">
-                 <label htmlFor='category'>Another select</label>
-                 <select onChange={this.onChangeIncomeCategory} className="form-control">
-                  {techCompanies.map((option) => (
-                    <option key={option.value} value={option.value}>{option.label}</option>
-                  ))}
-                </select>                    
-              </div>
-
-              <div className="form-group">
                 <label htmlFor='income_name'>Name</label>
                 <input
                   type='text'
@@ -202,18 +182,6 @@ export default class AddIncome extends Component {
                   value={this.state.name}
                   onChange={this.onChangeIncomeName}
                   name="name"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor='income_description'>Description</label>
-                <input
-                  type='text'
-                  className="form-control"
-                  id='description'
-                  value={this.state.description}
-                  onChange={this.onChangeIncomeDescription}
-                  name="description"
                 />
               </div>
 
